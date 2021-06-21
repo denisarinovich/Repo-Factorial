@@ -1,33 +1,34 @@
-import java.util.Scanner;
+import com.allmycode.dummiesframe.DummiesFrame;
 import static java.lang.System.*;
 
 public class Factorial {
 
+    /*
+    Вторая версия программы.
+    Задачей данной программы является вычисление введенного пользователем факториала.
+    За основу фрейма взят готовый класс DummiesFrame из книги Java for Dummies.
+    */
+
     public static void main(String args[]) {
 
-        int factorial = 1;
-        int total;
+        DummiesFrame frame = new DummiesFrame("Вычисление значение факториала");
+        frame.addRow("Введите значение факториала:");
+        frame.setButtonText("Вычислить!");
+        frame.go();
+    }
 
-        Scanner keyboard = new Scanner(System.in);
+    public static String calculate(int factorial) {
 
-        while (factorial != 0) {
-            total = 1;
-            System.out.println();
-            System.out.println("Для закрытия программы введите 0.");
-            out.print("Введите факториал: ");
-            factorial = keyboard.nextInt();
+        int total = 1;
 
-            if (factorial != 0) {
-                for (int i = 1; i <= factorial; i++) {
-                    total *= i;
-                }
-                System.out.println("Значением факториала " + factorial + "! " + "является число " + total + ".");
-                System.out.println();
+        if (factorial != 0 && factorial <= 12) {
 
-            } else {
-                System.out.println("Выполнение программы завершено! Спасибо!");
-                keyboard.close();
+            for (int i = 1; i <= factorial; i++) {
+                total *= i;
             }
+        } else if (factorial != 0 && factorial > 12) {
+            return "Нехватает памяти переменной int, программа принимает максимальеый факториал 12!";
         }
+        return "Значением факториала " + factorial + "! " + "является число " + total;
     }
 }
