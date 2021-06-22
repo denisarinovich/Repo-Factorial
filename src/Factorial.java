@@ -1,4 +1,7 @@
 import com.allmycode.dummiesframe.DummiesFrame;
+
+import java.math.BigInteger;
+
 import static java.lang.System.*;
 
 public class Factorial {
@@ -17,17 +20,14 @@ public class Factorial {
         frame.go();
     }
 
-    public static String calculate(int factorial) {
+    public static String calculate(long factorial) {
+        long total = 1;
 
-        int total = 1;
-
-        if (factorial != 0 && factorial <= 12) {
+        if (factorial != 0) {
 
             for (int i = 1; i <= factorial; i++) {
                 total *= i;
             }
-        } else if (factorial != 0 && factorial > 12) {
-            return "Нехватает памяти переменной int, программа принимает максимальеый факториал 12!";
         }
         return "Значением факториала " + factorial + "! " + "является число " + total;
     }
